@@ -50,6 +50,14 @@ then in your JavaScript file
 
 ```
 
+Alternative Way of making an element a click-able link , simply add a ` link="URL" ` attribute to the element   
+here's an example   
+   
+``` html
+  <div class="fancy-nav-item"  link="/home" > Fancy Navigation Link </div>
+```
+
+
 ##### Set a View On an Element
 Some Site HTML
 ``` html
