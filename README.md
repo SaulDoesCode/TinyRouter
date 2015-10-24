@@ -21,13 +21,13 @@ Tiny Front End Router for use in any modern website
 ##### Open a link 
 
 ``` javascript   
-  // router.openLink( _link_ , _optional-boolean-for-newtab_);
+  // router.open( _link_ , _optional-boolean-for-newtab_);
   
   // Opens the link in the same window
-  router.openLink("/awesome-link");
+  router.open("/awesome-link");
  
   // Opens the link in a new tab
-  router.openLink("http://www.some-other-site.meh",true); // notice the second parameter is just true, this opens the link in a new tab 
+  router.open("http://www.some-other-site.meh",true); // notice the second parameter is just true, this opens the link in a new tab 
   // 
 ```
 ##### Make an Element a click-able link
@@ -76,7 +76,19 @@ Some Site HTML
     
     router.handle("#news", () => {   
          // select the element to recieve the view with a CSS selector
-         router.setView('.important-content',NewsView); // This will set the contents of the element to the NewsView variable
+         router.setView('.important-content',NewsView); // This will set the contents of the element to NewsView  
     }); 
-  
+    
+    // or Fetch the View from a URL   
+    
+    router.handle("#news", () => {   
+         // select the element to recieve the view with a CSS selector
+         router.fetchView('.important-content',"/news-service");   
+         // This will set the contents of the element to the response of the url    
+    }); 
+    
+    //also optional caching available for the router.fetchView function   
+    
+    router.fetchView('.important-content',"/news-service", true /* set cache to true  */ , "identifier");    
+    /* cache identifier (can be anything) */
 ```
