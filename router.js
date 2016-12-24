@@ -1,5 +1,5 @@
 var router = {
-  handle: (RouteLink, callback) => {
+  handle(RouteLink, callback) {
     if (location.hash === RouteLink || location === RouteLink) callback();
     router.handlers.push({ link: RouteLink, callback: callback });
   },
@@ -9,7 +9,7 @@ var router = {
   open : (link, newtab) => newtab ? open(link) : location = link,
   setTitle: title => document.title = title,
   setView: (viewHostSelector, view) => document.body.querySelector(viewHostSelector).innerHTML = view,
-  fetchView: (viewHostSelector, viewURL, cache, id) => {
+  fetchView(viewHostSelector, viewURL, cache, id) {
     let viewHost = document.body.querySelector(viewHostSelector);
     if (id !== undefined && typeof id === "string" && cache === true) {
       if (localStorage.getItem("RT_" + id) === null || localStorage.getItem("RT_" + id) === undefined) {
